@@ -1,4 +1,2 @@
-github.com/dave/jennifer v1.7.1 h1:B4jJJDHelWcDhlRQxWeo0Npa/pYKBLrirAQoTN45txo=
-github.com/dave/jennifer v1.7.1/go.mod h1:nXbxhEmQfOZhWml3D1cDK5M1FLnMSozpbFN/m3RmGZc=
-github.com/goaperture/goaperture v1.0.4 h1:braLyQvqUBB1vKRAxuslyIYie9H/PCZ9MuzOjZ3tuT4=
-github.com/goaperture/goaperture v1.0.4/go.mod h1:AeaRZZMhXkK79TZBmr7DzxhI5Iu6WtmHHSW9KMOsuvU=
+github.com/goaperture/goaperture v1.0.6 h1:j88hnlD+E08oCCuBz2sVxlyFdY5zxF9/5iEdgGp7Ips=
+github.com/goaperture/goaperture v1.0.6/go.mod h1:LQc28133SIzLFSpx0nlqq92ufPGLGwTngdQKQbcD08A=

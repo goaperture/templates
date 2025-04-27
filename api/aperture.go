@@ -1,6 +1,7 @@
 package api
 
 import (
+	"app/api/config"
 	"app/api/routes"
 	"net/http"
 
@@ -8,9 +9,9 @@ import (
 )
 
 func (server *Server) Run(port int, token *string) error {
-	api.NewRoute(&server.aperture, api.Route[routes.IndexInput]{
-		Handler: routes.Index,
+	api.NewRoute(&server.aperture, api.Route[routes.IndexInput, config.Client]{
 		Path:    "/index",
+		Handler: routes.Index,
 		Test:    routes.IndexTest,
 	})
 	return server.aperture.Run(port, token)
