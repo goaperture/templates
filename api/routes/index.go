@@ -14,7 +14,7 @@ func IndexTest(invoke func(IndexInput)) {
 }
 
 func Index(input IndexInput, client *config.Client) (any, error) {
-	if !client.Permissions.Has("test", "1234") {
+	if !client.Permissions.Has("index", "main") {
 		panic("Нет доступа")
 	}
 

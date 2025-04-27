@@ -1,18 +1,28 @@
 package api
 
 import (
-	"app/api/config"
+	config "app/api/config"
 	"app/api/routes"
-	"net/http"
-
+	"app/api/routes/profile"
 	api "github.com/goaperture/goaperture/lib/aperture"
+	"net/http"
 )
 
 func (server *Server) Run(port int, token *string) error {
 	api.NewRoute(&server.aperture, api.Route[routes.IndexInput, config.Client]{
-		Path:    "/index",
 		Handler: routes.Index,
+		Path:    "/index",
 		Test:    routes.IndexTest,
+	})
+	api.NewRoute(&server.aperture, api.Route[profile.SinginInput, config.Client]{
+		Handler: profile.Singin,
+		Path:    "/profile/singin",
+		Test:    profile.SinginTest,
+	})
+	api.NewRoute(&server.aperture, api.Route[profile.UpdateAccessInput, config.Client]{
+		Handler: profile.UpdateAccess,
+		Path:    "/profile/update-access",
+		Test:    profile.UpdateAccessTest,
 	})
 	return server.aperture.Run(port, token)
 }
