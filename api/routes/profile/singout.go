@@ -16,9 +16,7 @@ func SingoutTest(invoke func(SingoutInput)) {
 }
 
 func Singout(input SingoutInput, client config.Client) (any, error) {
-	if client.Payload == nil {
+	client.RemoveJwt("refresh_token", "/profile/refresh", true)
 
-	}
-
-	return client.Payload.Avatar, nil
+	return "OK", nil
 }

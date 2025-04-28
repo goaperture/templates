@@ -5,7 +5,7 @@ import (
 )
 
 type Payload struct {
-	Id          uint                 `json:"id"`
+	Id          string               `json:"id"`
 	Name        string               `json:"name"`
 	Email       string               `json:"email"`
 	Avatar      string               `json:"avatar"`
