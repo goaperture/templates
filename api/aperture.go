@@ -4,22 +4,23 @@ import (
 	config "app/api/config"
 	"app/api/routes"
 	"app/api/routes/profile"
-	api "github.com/goaperture/goaperture/lib/aperture"
 	"net/http"
+
+	api "github.com/goaperture/goaperture/lib/aperture"
 )
 
 func (server *Server) Run(port int, token *string) error {
-	api.NewRoute(&server.aperture, api.Route[routes.IndexInput, config.Client]{
+	api.NewRoute(&server.aperture, api.Route[routes.IndexInput, config.Payload]{
 		Handler: routes.Index,
 		Path:    "/index",
 		Test:    routes.IndexTest,
 	})
-	api.NewRoute(&server.aperture, api.Route[profile.SinginInput, config.Client]{
+	api.NewRoute(&server.aperture, api.Route[profile.SinginInput, config.Payload]{
 		Handler: profile.Singin,
 		Path:    "/profile/singin",
 		Test:    profile.SinginTest,
 	})
-	api.NewRoute(&server.aperture, api.Route[profile.UpdateAccessInput, config.Client]{
+	api.NewRoute(&server.aperture, api.Route[profile.UpdateAccessInput, config.Payload]{
 		Handler: profile.UpdateAccess,
 		Path:    "/profile/update-access",
 		Test:    profile.UpdateAccessTest,

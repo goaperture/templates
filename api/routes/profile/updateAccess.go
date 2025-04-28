@@ -2,9 +2,6 @@ package profile
 
 import (
 	"app/api/config"
-
-	ac "github.com/goaperture/goaperture/lib/client"
-	"github.com/goaperture/goaperture/lib/jwt"
 )
 
 type UpdateAccessInput struct {
@@ -19,19 +16,19 @@ func UpdateAccessTest(invoke func(UpdateAccessInput)) {
 	invoke(UpdateAccessInput{})
 }
 
-func UpdateAccess(input UpdateAccessInput, client *config.Client) (any, error) {
-	clientId, err := jwt.DecodeRefreshToken(input.Token)
-	if err != nil {
-		panic("Не удалось выпонить вход")
-	}
+func UpdateAccess(input UpdateAccessInput, client config.Client) (any, error) {
+	// clientId, err := jwt.DecodeRefreshToken(input.Token)
+	// if err != nil {
+	// 	panic("Не удалось выпонить вход")
+	// }
 
-	newClient := config.Client{
-		Id:          clientId,
-		Name:        "admin",
-		Email:       "admin",
-		Avatar:      "no-image.svg",
-		Permissions: ac.Permissions{"all"},
-	}
+	// newClient := config.Client{
+	// 	Id:          clientId,
+	// 	Name:        "admin",
+	// 	Email:       "admin",
+	// 	Avatar:      "no-image.svg",
+	// 	Permissions: ac.Permissions{"all"},
+	// }
 
-	return jwt.NewAccessToken(newClient)
+	// return jwt.NewAccessToken(newClient)
 }
