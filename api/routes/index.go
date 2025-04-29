@@ -14,9 +14,5 @@ func IndexTest(invoke func(IndexInput)) {
 }
 
 func Index(input IndexInput, client config.Client) (any, error) {
-	if !client.Payload.Permissions.Has("index", "main") {
-		panic("Нет доступа")
-	}
-
 	return "hello world", nil
 }

@@ -4,28 +4,32 @@ import (
 	config "app/api/config"
 	"app/api/routes"
 	"app/api/routes/profile"
-	"net/http"
-
 	api "github.com/goaperture/goaperture/lib/aperture"
+	"net/http"
 )
 
 func (server *Server) Run(port int, token *string) error {
-	api.NewRoute(&server.aperture, api.Route[routes.IndexInput, config.Client]{
+	api.NewRoute(&server.aperture, api.Route[routes.IndexInput, config.Payload]{
 		Handler: routes.Index,
 		Path:    "/index",
 		Test:    routes.IndexTest,
 	})
-	api.NewRoute(&server.aperture, api.Route[profile.RefreshInput, config.Client]{
+	api.NewRoute(&server.aperture, api.Route[routes.PrivateInput, config.Payload]{
+		Handler: routes.Private,
+		Path:    "/private",
+		Test:    routes.PrivateTest,
+	})
+	api.NewRoute(&server.aperture, api.Route[profile.RefreshInput, config.Payload]{
 		Handler: profile.Refresh,
 		Path:    "/profile/refresh",
 		Test:    profile.RefreshTest,
 	})
-	api.NewRoute(&server.aperture, api.Route[profile.SinginInput, config.Client]{
+	api.NewRoute(&server.aperture, api.Route[profile.SinginInput, config.Payload]{
 		Handler: profile.Singin,
 		Path:    "/profile/singin",
 		Test:    profile.SinginTest,
 	})
-	api.NewRoute(&server.aperture, api.Route[profile.SingoutInput, config.Client]{
+	api.NewRoute(&server.aperture, api.Route[profile.SingoutInput, config.Payload]{
 		Handler: profile.Singout,
 		Path:    "/profile/singout",
 		Test:    profile.SingoutTest,

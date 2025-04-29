@@ -24,15 +24,17 @@ func Singin(input SinginInput, client config.Client) (any, error) {
 		panic("Не удалось выполнить вход")
 	}
 
-	payload := config.Payload{
-		Id:          "123",
+	clientId := "555"
+
+	return client.NewJwt(GetPayload(clientId), "refresh_token", clientId, "/profile/refresh", true)
+}
+
+func GetPayload(clientId string) config.Payload {
+	return config.Payload{
+		Id:          clientId,
 		Name:        "Admin",
 		Email:       "admin@mail.ru",
 		Avatar:      "/noimage.svg",
-		Permissions: aperture.Permissions{"noo"},
+		Permissions: aperture.Permissions{"private"},
 	}
-
-	_, access := client.NewJwt(payload, "refresh_token", payload.Id, "/profile/refresh", true)
-
-	return access, nil
 }
