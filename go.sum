@@ -1,4 +1,4 @@
-github.com/goaperture/goaperture v1.0.8 h1:IeQQI5ycvL+C0kYok/npQrensqodyOskrDQUd5WVnLY=
-github.com/goaperture/goaperture v1.0.8/go.mod h1:8jmJR9sxrSzyGCg3guh5BlUqrjClEKXOAmvDGLHe+cg=
+github.com/goaperture/goaperture v1.1.0 h1:roVyc58IANmwiWWgGS4Xk+Aq8/ouzzzLCtIn7kE3MC0=
+github.com/goaperture/goaperture v1.1.0/go.mod h1:8jmJR9sxrSzyGCg3guh5BlUqrjClEKXOAmvDGLHe+cg=
 github.com/golang-jwt/jwt/v5 v5.2.2 h1:Rl4B7itRWVtYIHFrSNd7vhTiz9UpLdi6gZhZ3wEeDy8=
 github.com/golang-jwt/jwt/v5 v5.2.2/go.mod h1:pqrtFR0X4osieyHYxtmOUWsAWrfe1Q5UVIyoH402zdk=

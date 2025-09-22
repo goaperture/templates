@@ -34,21 +34,21 @@ func (server *Server) Run(port int, token *string) error {
 		Path:    "/v1/profile/singout",
 		Test:    profile.SingoutTest,
 	})
-	return server.aperture.Run(port, token)
+	return server.aperture.Run(port, token, config.TestClients)
 }
 
 type Server struct {
-	aperture api.Aperture
+	aperture api.Aperture[config.Payload]
 }
 
-func NewServer() *Server {
-	return &Server{aperture: *api.NewServer()}
+func NewServer(token *string) *Server {
+	return &Server{aperture: *api.NewServer[config.Payload](token)}
 }
 func (server *Server) Middleware(middleware func(next http.Handler) http.Handler) {
 	server.aperture.Middleware = middleware
 }
 func Serve(port int, token *string) {
-	if err := NewServer().Run(port, token); err != nil {
+	if err := NewServer(token).Run(port, token); err != nil {
 		panic(err)
 	}
 }

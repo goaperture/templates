@@ -10,3 +10,5 @@ type Payload struct {
 	Permissions aperture.Permissions `json:"permissions"`
 }
 type Client = aperture.Client[Payload]
+
+var TestClients []Payload
